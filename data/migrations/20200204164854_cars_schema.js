@@ -4,7 +4,7 @@ exports.up = async function(knex) {
     tbl.string('make').notNull();
     tbl.string('model').notNull();
     tbl
-      .integer('VIN')
+      .integer('vin')
       .notNull()
       .unique();
     tbl.float('mileage').notNull();

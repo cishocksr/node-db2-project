@@ -30,9 +30,10 @@ router.post('/', (req, res) => {
   const carData = req.body;
   db('cars')
     .insert(carData)
-    .then(ids => {
+    .first() //use when you want the first
+    .then(id => {
       db('cars')
-        .where({ id: ids[0] })
+        .where({ id })
         .then(newCar => {
           res.status(201).json(newCar);
         });
